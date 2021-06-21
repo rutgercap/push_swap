@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_swap.c                                        :+:      :+:    :+:   */
+/*   rev_rotate_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 11:07:21 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:47:38 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/06/09 10:43:25 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/06/17 16:23:01 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /*
-**	swap first two elements of both stacks.
+**	reverse rotates both stacks
 */
 
-void	swap_swap(t_stack **a, t_stack **b)
+void	rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b)
 {
-	swap(a, 0);
-	swap(b, 0);
-	write(1, &"ss\n", 3);
+	rev_rotate(stack_a, 0);
+	rev_rotate(stack_b, 0);
+	write(1, &"rrr\n", 4);
 }

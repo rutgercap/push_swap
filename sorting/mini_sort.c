@@ -1,37 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   mini_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 16:28:03 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:45:55 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/06/09 13:52:41 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/06/17 16:34:52 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /*
-**	take first element of src and put it on top of dest. 
-**	direction = A : Take from B, put on A.
-**	direction = B : Take from A, put on B.
+**	sorts stack of three integers
 */
 
-void	push(t_stack **dest, t_stack **src, char dir)
-{	
-	t_stack	*temp;
-	
-	write(1, &"p", 1);
-	write(1, &dir, 1);
-	write(1, &"\n", 1);
-	if (src == NULL)
+void	mini_sort(t_stack **ref, char id)
+{
+	if (is_sorted(ref))
 		return ;
-	temp = *src;
-	if (temp->next)
-		*src = temp->next;
+	if (get_value(ref, 0) < get_value(ref, 1))
+	{
+		if (get_value(ref, 2) > get_value(ref, 0))
+		{
+			swap(ref, id);
+			rotate(ref, id);
+		}
+		else
+			rev_rotate(ref, id);
+	}
+	else if (get_value(ref, 1) > get_value(ref, 2))
+	{
+		swap(ref, id);
+		rev_rotate(ref, id);
+	}
+	else if (get_value(ref, 0) > get_value(ref, 2))
+		rotate(ref, id);
 	else
-		*src = NULL;
-	temp->next = *dest;
-	*dest = temp;
+		swap(ref, id);
 }

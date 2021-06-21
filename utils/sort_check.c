@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_swap.c                                        :+:      :+:    :+:   */
+/*   sort_check.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 11:07:21 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:47:38 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/06/09 14:01:27 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/06/17 16:01:41 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /*
-**	swap first two elements of both stacks.
+**	checks if stack is sorted. Returns 0 if sorted, 1 if not.
 */
 
-void	swap_swap(t_stack **a, t_stack **b)
+int	is_sorted(t_stack **s)
 {
-	swap(a, 0);
-	swap(b, 0);
-	write(1, &"ss\n", 3);
+	t_stack	*index;
+
+	index = *s;
+	while (index->next != NULL)
+	{
+		if (index->value > index->next->value)
+			return (NOT_SORTED);
+		index = index->next;
+	}
+	return (SORTED);
 }

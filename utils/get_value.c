@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_swap.c                                        :+:      :+:    :+:   */
+/*   get_value.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 11:07:21 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:47:38 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/06/17 16:18:10 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/06/17 16:24:46 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*
-**	swap first two elements of both stacks.
-*/
-
-void	swap_swap(t_stack **a, t_stack **b)
+int	get_value(t_stack **ref, int index)
 {
-	swap(a, 0);
-	swap(b, 0);
-	write(1, &"ss\n", 3);
+	t_stack	*temp;
+	
+	temp = *ref;
+	while (temp->next && index > 0)
+	{
+		temp = temp->next;
+		index--;
+	}
+	return (temp->value);
 }

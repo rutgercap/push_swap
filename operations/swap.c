@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   swap.c                                             :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/05/27 16:00:14 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/05/28 11:07:16 by rcappend      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/27 16:00:14 by rcappend          #+#    #+#             */
+/*   Updated: 2021/06/17 16:02:31 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	swap(int *to_swap, char stack)
-{
-	int	temp;
+/*
+**	swap the first 2 elements at the top of stack. 
+**	Do nothing if there is only one or no elements.
+*/
 
-	if (to_swap[1])
+void	swap(t_stack **s, char dir)
+{
+	t_stack	*first;
+	t_stack	*second;
+	
+	if (dir)
 	{
-		temp = to_swap[0];
-		to_swap[0] = to_swap[1];
-		to_swap[1] = temp;
-	}		
-	if (stack)
-	{
-		write(1, &"S", 1);
-		write(1, &stack, 1);
+		write(1, &"s", 1);
+		write(1, &dir, 1);
 		write(1, &"\n", 1);
 	}
+	first = *s;
+	second = first->next;
+	if (first == NULL || first->next == NULL)
+		return ;
+	first->next = first->next->next;
+	second->next = first;
+	*s = second;
 }

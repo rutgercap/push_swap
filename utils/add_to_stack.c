@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_swap.c                                        :+:      :+:    :+:   */
+/*   add_to_stack.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 11:07:21 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:47:38 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/06/16 14:11:42 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/06/17 16:02:53 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-/*
-**	swap first two elements of both stacks.
-*/
-
-void	swap_swap(t_stack **a, t_stack **b)
+void	add_to_front(t_stack **s, int value)
 {
-	swap(a, 0);
-	swap(b, 0);
-	write(1, &"ss\n", 3);
+	t_stack	*new;
+	
+	new = malloc(sizeof(t_stack));
+	if (!new)
+		exit_error("Malloc failure!");
+	new->value = value;
+	new->next = *s;
+	*s = new;
 }

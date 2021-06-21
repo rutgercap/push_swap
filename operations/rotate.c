@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap_swap.c                                        :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 11:07:21 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:47:38 by rutgercappe      ###   ########.fr       */
+/*   Created: 2021/06/07 12:54:35 by rutgercappe       #+#    #+#             */
+/*   Updated: 2021/06/16 17:17:33 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /*
-**	swap first two elements of both stacks.
+**	shift up all elements of stack a by 1. 
+**	The first element becomes the last one.
 */
 
-void	swap_swap(t_stack **a, t_stack **b)
+void	rotate(t_stack **s, char id)
 {
-	swap(a, 0);
-	swap(b, 0);
-	write(1, &"ss\n", 3);
+	t_stack	*last;
+	t_stack	*first;
+
+	if (id)
+	{
+		write(1, &"r", 1);
+		write(1, &id, 1);
+		write(1, &"\n", 1);
+	}
+	if (!*s)
+		return ;
+	last = *s;
+	first = *s;
+	*s = first->next;
+	while (last->next != NULL)
+		last = last->next;
+	last->next = first;
+	first->next = NULL;
 }

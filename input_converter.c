@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   input_converter.c                                  :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/05/27 13:44:29 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/05/27 16:10:40 by rcappend      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   input_converter.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/27 13:44:29 by rcappend          #+#    #+#             */
+/*   Updated: 2021/06/16 14:12:51 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,35 +37,30 @@ static int	boundary_check(char *value)
 	return (EXIT_SUCCESS);
 }
 
-static int	check_duplicates(int stacklen, int *stack)
+static void	check_duplicates(t_stack *start)
 {
-	int	half;
-	int	i;
+	t_stack	*index;
+	t_stack	*check;
 
-	half = stacklen / 2;
-	while (stacklen > half)
+	index = start;
+	while (index != NULL && index->next != NULL)
 	{
-		i = 0;
-		while (i < stacklen)
+		check = index;
+		while (check->next != NULL)
 		{
-			if (stack[i] == stack[stacklen])
-				return (EXIT_FAILURE);
-			i++;
-		}	
-		stacklen--;
+			if (index->value == check->next->value)
+				exit_error("Duplicate integer found!");
+			check = check->next;
+		}
+		index = index->next;
 	}
-	return (EXIT_SUCCESS);
 }
 
-int		*input_converter(int argc, char **argv)
+void	input_converter(t_stack **a, int argc, char **argv)
 {
-	int		*stack;
 	int		temp;
 
 	temp = argc - 2;
-	stack = ft_calloc(argc, sizeof(int));
-	if (!stack)
-		exit_error("Malloc failure");
 	while (argc > 1)
 	{
 		argc--;
@@ -73,9 +68,7 @@ int		*input_converter(int argc, char **argv)
 			exit_error("Only integers allowed");
 		if (boundary_check(argv[argc]))
 			exit_error("One or more numbers too big or small");
-		stack[argc - 1] = ft_atoi(argv[argc]);		
+		add_to_front(a, ft_atoi(argv[argc]));
 	}
-	if (check_duplicates(temp, stack))
-		exit_error("Duplicate integer found");
-	return (stack);
+	check_duplicates(*a);
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2021/05/27 13:02:06 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/05/28 11:51:25 by rcappend      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/27 13:02:06 by rcappend          #+#    #+#             */
+/*   Updated: 2021/06/17 16:36:24 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,28 @@
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
-# define STACK_A 'A'
-# define STACK_B 'B'
-# define FRONT '1'
-# define BACK '0'
+# define STACK_A 'a'
+# define STACK_B 'b'
+# define NOT_SORTED 0
+# define SORTED 1
 
 # include <stdio.h>  // weghalen
 
+typedef enum
+{
+	FALSE,
+	TRUE
+}	t_bool;
+
+typedef struct s_stack
+{
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}	t_stack;
+
 /*
-** Libft functions
+** utils
 */
 
 void		*ft_memmove(void *dst, const void *src, size_t len);
@@ -47,20 +60,46 @@ void		*ft_memcpy(void *dst, void *src, size_t n);
 
 size_t		ft_strlen(const char *str);
 
+int			stacklen(t_stack **ref);
+
+int			is_sorted(t_stack **s);
+
+int			get_value(t_stack **ref, int index);
+
 /*
-** push swap functions
+** basic push swap functions
 */
+
+void		input_converter(t_stack **a, int argc, char **argv);
 
 void		exit_error(char *msg);
 
-int			*input_converter(int argc, char **argv);
+/*
+**	operations
+*/
 
-void		swap(int *to_swap, char stack);
+void		add_to_front(t_stack **s, int value);
 
-int			stack_len(int *stack);
+void		swap(t_stack **s, char dir);
 
-void		push(int *dest, int *src, char stack);
+void		swap_swap(t_stack **a, t_stack **b);
 
+void		push(t_stack **dest, t_stack **src, char dir);
 
+void		rotate(t_stack **s, char id);
+
+void		rotate_rotate(t_stack **a, t_stack **b);
+
+void		rev_rotate(t_stack **s, char id);
+
+void		rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+
+/*
+**	sorting algos
+*/
+
+void		mini_sort(t_stack **ref, char id);
+
+// void		small_sort(t_stack *stack_a, t_stack *stack_b);
 
 #endif
