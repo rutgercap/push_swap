@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 14:01:27 by rutgercappe       #+#    #+#             */
-/*   Updated: 2021/09/12 13:08:41 by rutgercappe      ###   ########.fr       */
+/*   Updated: 2021/09/13 08:31:43 by rutgercappe      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_sorted(t_stack **s)
 	return (SORTED);
 }
 
-t_stack	*find_first(t_stack **s, int *index)
+t_stack	*get_first(t_stack **s, int *index)
 {
 	t_stack	*i;
 
@@ -50,7 +50,20 @@ int	new_sorted(t_stack **s)
 	int		curr;
 
 	curr = 1;
-	i = find_first(s, curr);
+	i = get_first(s, curr);
 	len = stacklen(s);
-	
+	while (i->next != NULL)
+	{
+		
+	}
 }
+
+
+
+
+/*
+**	checks if stack is sorted
+**	returns SORTED if stack is sorted
+**	returns NEEDS_ROTATING if stack is sorted, but 
+**	doesn't start at index 1
+*/
