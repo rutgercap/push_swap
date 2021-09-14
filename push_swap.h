@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 13:02:06 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/17 16:36:24 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   push_swap.h                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 13:02:06 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/14 13:33:00 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@
 # define INT_MIN -2147483648
 # define STACK_A 'a'
 # define STACK_B 'b'
+# define NOT_SET -1
 # define NOT_SORTED 0
 # define SORTED 1
+# define NEEDS_ROTATING 2
+# define UP 1
+# define DOWN 0
+
 
 # include <stdio.h>  // weghalen
 
@@ -64,13 +69,15 @@ int			stacklen(t_stack **ref);
 
 int			is_sorted(t_stack **s);
 
-int			get_value(t_stack **ref, int index);
+int			get_index(t_stack **ref, int index);
 
 /*
 ** basic push swap functions
 */
 
 void		input_converter(t_stack **a, int argc, char **argv);
+
+void		set_index(t_stack **s);
 
 void		exit_error(char *msg);
 
@@ -100,6 +107,8 @@ void		rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 
 void		mini_sort(t_stack **ref, char id);
 
-// void		small_sort(t_stack *stack_a, t_stack *stack_b);
+void		small_sort(t_stack **stack_a, t_stack **stack_b);
+
+void		rotate_until_sorted(t_stack **s, char id);
 
 #endif

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   mini_sort.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 13:52:41 by rutgercappe       #+#    #+#             */
-/*   Updated: 2021/06/17 16:34:52 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   mini_sort.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/06/09 13:52:41 by rutgercappe   #+#    #+#                 */
+/*   Updated: 2021/09/14 13:32:03 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,7 @@
 
 void	mini_sort(t_stack **ref, char id)
 {
-	if (is_sorted(ref))
-		return ;
-	if (get_value(ref, 0) < get_value(ref, 1))
-	{
-		if (get_value(ref, 2) > get_value(ref, 0))
-		{
-			swap(ref, id);
-			rotate(ref, id);
-		}
-		else
-			rev_rotate(ref, id);
-	}
-	else if (get_value(ref, 1) > get_value(ref, 2))
-	{
+	while (is_sorted(ref) != NEEDS_ROTATING)
 		swap(ref, id);
-		rev_rotate(ref, id);
-	}
-	else if (get_value(ref, 0) > get_value(ref, 2))
-		rotate(ref, id);
-	else
-		swap(ref, id);
+	rotate_until_sorted(ref, id);
 }

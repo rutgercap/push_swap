@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   small_sort.c                                       :+:    :+:            */
+/*   get_index.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/15 16:52:30 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2021/09/14 13:29:46 by rcappend      ########   odam.nl         */
+/*   Created: 2021/06/17 16:18:10 by rutgercappe   #+#    #+#                 */
+/*   Updated: 2021/09/13 15:43:04 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	small_sort(t_stack **stack_a, t_stack **stack_b)
+int	get_index(t_stack **ref, int index)
 {
-	if (is_sorted(stack_a) == NEEDS_ROTATING)
-		return rotate_until_sorted(stack_a, STACK_A);
-	while (stacklen(stack_a) > 3)
-		push(stack_b, stack_a, STACK_A);
+	t_stack	*temp;
 	
-	return;
+	temp = *ref;
+	while (temp->next && index > 0)
+	{
+		temp = temp->next;
+		index--;
+	}
+	printf("test: %i\n", temp->index);
+	return (temp->index);
 }

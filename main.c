@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 13:04:18 by rcappend          #+#    #+#             */
-/*   Updated: 2021/09/12 12:16:54 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 13:04:18 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/14 13:32:38 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,22 @@
 // for testing
 void	print_stack(t_stack *stack, char x)
 {
-	t_stack	*index;
+	t_stack	*i;
 
-	printf("%c: ", x);
-	index = stack;
-	while (index != NULL)
+	printf("%c: \n", x);
+	i = stack;
+	while (i != NULL)
 	{
-		printf("%i ", index->value);
-		index = index->next;
+		printf("val: %i | index: %i \n", i->value, i->index);
+		i = i->next;
 	}
 	printf("\n");
 }
 
-void	test(t_stack *a, t_stack *b)
-{
-	printf("\n");
-	print_stack(a, STACK_A);
-	printf("\n----------\n");
-	rotate(&a, STACK_A);
-	print_stack(a, STACK_A);
-	print_stack(b, STACK_B);
-}
+// void	test(t_stack **a, t_stack **b)
+// {
+// 	swap(a, STACK_A);
+// }
 
 // Real code
 
@@ -51,15 +46,15 @@ void	sort(t_stack **a, t_stack **b)
 {
 	int	len;
 
-	if (is_sorted(a))
+	if (is_sorted(a) == SORTED)
 		return ;
 	len = stacklen(a);
 	if (len == 2)
 		swap(a, STACK_A);
 	else if (len == 3)
 		mini_sort(a, STACK_A);
-	// else if (len == 5)
-	// 	small_sort(a, b);
+	else if (len == 5)	// add 4 ?
+		small_sort(a, b);
 	// else if (len == 100)
 	// 	big_sort(stack_a, stack_b);
 	// else if (len == 500)
@@ -76,6 +71,7 @@ int main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	input_converter(&a, argc, argv);
+	set_index(&a);
 	sort(&a, &b);
 	print_stack(a, STACK_A);
 	print_stack(b, STACK_B);

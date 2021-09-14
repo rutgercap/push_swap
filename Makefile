@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/27 10:57:36 by rcappend          #+#    #+#              #
-#    Updated: 2021/06/21 09:31:49 by rutgercappe      ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
+#                                                    +#+                       #
+#    Created: 2021/05/27 10:57:36 by rcappend      #+#    #+#                  #
+#    Updated: 2021/09/14 12:14:15 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,7 @@ NAME		=	push_swap
 
 SRCS		=	main.c \
 				input_converter.c \
+				index.c \
 				utils/ft_memmove.c \
 				utils/ft_isdigit.c \
 				utils/ft_atoi.c \
@@ -25,8 +26,8 @@ SRCS		=	main.c \
 				utils/ft_isspace.c \
 				utils/add_to_stack.c \
 				utils/stacklen.c \
-				utils/sort_check.c \
-				utils/get_value.c \
+				utils/is_sorted.c \
+				utils/get_index.c \
 				operations/swap.c \
 				operations/swap_swap.c \
 				operations/push.c \
@@ -35,6 +36,8 @@ SRCS		=	main.c \
 				operations/rev_rotate.c \
 				operations/rev_rotate_rotate.c \
 				sorting/mini_sort.c \
+				sorting/small_sort.c \
+				sorting/rotate_until_sorted.c \
 				# sorting/small_sort.c \
 				# operations/trade.c
 OBJS		=	$(SRCS:.c=.o)
@@ -59,10 +62,10 @@ empty: all
 	./$(NAME)
 
 test: all
-	./$(NAME) 3 2 1
+	./$(NAME) 2 1 3
 
 dtest: all
-	lldb $(NAME) -- 3 2 1
+	lldb $(NAME) -- 2 1 3
 
 phony:
 	all clean fclean re dtest test
