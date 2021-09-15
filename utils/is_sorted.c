@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 14:01:27 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2021/09/14 14:06:37 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/15 14:57:25 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,53 +18,6 @@
 **	returns NEEDS_ROTATING if stack is sorted, but 
 **	doesn't start at index 1
 */
-
-// int	check_start(t_stack **s, int len)
-// {
-// 	t_stack *i;
-
-// 	i = *s;
-// 	while (len >= 2)
-// 	{
-// 		if (i->value > i->next->value)
-// 			return NOT_SORTED;
-// 		i = i->next;
-// 		len--;
-// 	}
-// 	return NEEDS_ROTATING;
-// }
-
-// t_stack	*get_first(t_stack **s, int *test)
-// {
-// 	t_stack	*i;
-
-// 	i = *s;
-// 	while (i->index != 1)
-// 	{
-// 		*test += 1;
-// 		i = i->next;
-// 	}
-// 	return i;
-// }
-
-// int	is_sorted(t_stack **s)
-// {
-// 	t_stack	*i;
-// 	int		len;
-// 	int		curr;
-
-// 	curr = 1;
-// 	i = get_first(s, &curr);
-// 	len = stacklen(s);
-// 	while (i->next != NULL)
-// 	{
-// 		if (i->value > i->next->value)
-// 			return NOT_SORTED;
-// 		i = i->next;
-// 		len--;
-// 	}
-
-// }
 
 static int	get_low(t_stack **s)
 {
@@ -79,27 +32,57 @@ static int	get_low(t_stack **s)
 			low = i->index;
 		i = i->next;
 	}
-	return low;
+	return (low);
+}
+
+static int	compare(t_stack *s, int steps)
+{
+	t_stack	*i;
+
+	i = s;
+	while (steps > 0 && i != NULL)
+	{
+		i = i->next;
+		steps--;
+	}
+	if (i == NULL)
+		return (LOWER);
+	if (i->index > s->index)
+		return (HIGHER);
+	return (LOWER);
+}
+
+static int	check_sort(t_stack *i, const int low, t_bool *rotate)
+{
+	while (i->next != NULL)
+	{
+		if (i->next->index != low)
+		{
+			if (compare(i, 1) == LOWER)
+				return (NOT_SORTED);
+		}
+		else
+		{
+			if (compare(i, 2) == HIGHER)
+				return (NOT_SORTED);
+			else
+				*rotate = TRUE;
+		}
+		i = i->next;
+	}
+	return (SORTED);
 }
 
 int	is_sorted(t_stack **s)
 {
-	t_stack	*i;
 	t_bool	rotate;
 	int		low;
 
-	i = *s;
 	rotate = FALSE;
 	low = get_low(s);
-	while (i->next != NULL)
-	{
-		if (i->next->index == low)
-			rotate = TRUE;
-		if (i->next->index != low && i->index > i->next->index)
-			return NOT_SORTED;
-		i = i->next;
-	}
+	if (check_sort(*s, low, &rotate) == NOT_SORTED)
+		return (NOT_SORTED);
 	if (rotate == TRUE)
-		return NEEDS_ROTATING;
-	return SORTED;
+		return (NEEDS_ROTATING);
+	return (SORTED);
 }

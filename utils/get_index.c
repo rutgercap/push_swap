@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/17 16:18:10 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2021/09/13 15:43:04 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/15 12:46:18 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	get_index(t_stack **ref, int index)
 {
 	t_stack	*temp;
-	
+
 	temp = *ref;
 	while (temp->next && index > 0)
 	{

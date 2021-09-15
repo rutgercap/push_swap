@@ -6,7 +6,7 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/27 10:57:36 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/14 12:14:15 by rcappend      ########   odam.nl          #
+#    Updated: 2021/09/15 15:16:16 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,10 +62,10 @@ empty: all
 	./$(NAME)
 
 test: all
-	./$(NAME) 2 1 3
+	./$(NAME) 1 3 2
 
 dtest: all
-	lldb $(NAME) -- 2 1 3
+	lldb $(NAME) -- 1 2 3 4 5 6
 
 phony:
 	all clean fclean re dtest test

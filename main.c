@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:04:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/14 13:32:38 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/15 15:12:57 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	print_stack(t_stack *stack, char x)
 	printf("\n");
 }
 
-// void	test(t_stack **a, t_stack **b)
-// {
-// 	swap(a, STACK_A);
-// }
+void	test(t_stack **a, t_stack **b)
+{
+	printf("sort: %i\n", is_sorted(a));
+}
 
 // Real code
 

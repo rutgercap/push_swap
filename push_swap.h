@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:02:06 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/14 13:33:00 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/15 11:59:26 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,29 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+/*
+**	general
+*/
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define STACK_A 'a'
 # define STACK_B 'b'
 # define NOT_SET -1
-# define NOT_SORTED 0
-# define SORTED 1
-# define NEEDS_ROTATING 2
+
+/*
+**	needs_rotating.c
+*/
 # define UP 1
 # define DOWN 0
 
+/*
+**	is_sorted.c
+*/
+# define HIGHER 1
+# define LOWER -1
+# define NOT_SORTED -1
+# define SORTED 1
+# define NEEDS_ROTATING 2
 
 # include <stdio.h>  // weghalen
 

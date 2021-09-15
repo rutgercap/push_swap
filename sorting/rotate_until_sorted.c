@@ -6,7 +6,7 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 11:47:58 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/14 13:35:24 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/15 15:16:49 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int		get_dir(t_stack *s)
 {
-    int	len;
-    int	curr;
+    int		len;
+    int		curr;
 
     len = stacklen(&s);
     curr = 1;
@@ -23,10 +23,10 @@ static int		get_dir(t_stack *s)
     {
     	curr++;
         s = s->next;
+		if (s->index == 1)
+			return (DOWN);
     }
-    if (len / curr >= len / 2)
-        return UP;
-    return DOWN;
+	return (UP);
 }
 
 void	rotate_until_sorted(t_stack **s, char id)
