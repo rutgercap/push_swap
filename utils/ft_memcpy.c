@@ -6,11 +6,11 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 15:41:53 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/05/27 11:15:30 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 11:10:33 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 void	*ft_memcpy(void *dst, void *src, size_t n)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 16:28:03 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 16:45:55 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   push.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 16:28:03 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/27 11:20:40 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 void	push(t_stack **dest, t_stack **src, char dir)
 {	
 	t_stack	*temp;
-	
+
 	write(1, &"p", 1);
 	write(1, &dir, 1);
 	write(1, &"\n", 1);

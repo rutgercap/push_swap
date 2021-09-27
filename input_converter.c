@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   input_converter.c                                  :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 13:44:29 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/16 14:12:51 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   input_converter.c                                  :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 13:44:29 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/27 11:03:02 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	check_duplicates(t_stack *start)
 		while (check->next != NULL)
 		{
 			if (index->value == check->next->value)
-				exit_error("Duplicate integer found!");
+				exit_error();
 			check = check->next;
 		}
 		index = index->next;
@@ -65,9 +65,9 @@ void	input_converter(t_stack **a, int argc, char **argv)
 	{
 		argc--;
 		if (int_check(argv[argc]))
-			exit_error("Only integers allowed");
+			exit_error();
 		if (boundary_check(argv[argc]))
-			exit_error("One or more numbers too big or small");
+			exit_error();
 		add_to_front(a, ft_atoi(argv[argc]));
 	}
 	check_duplicates(*a);

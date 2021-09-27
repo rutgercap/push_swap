@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 16:00:14 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/17 16:02:31 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   swap.c                                             :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 16:00:14 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/27 11:21:22 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap(t_stack **s, char dir)
 {
 	t_stack	*first;
 	t_stack	*second;
-	
+
 	if (dir)
 	{
 		write(1, &"s", 1);

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_big_atoi.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rutgercappendijk <rutgercappendijk@stud    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/27 14:31:44 by rcappend          #+#    #+#             */
-/*   Updated: 2021/06/15 16:27:21 by rutgercappe      ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   ft_big_atoi.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/05/27 14:31:44 by rcappend      #+#    #+#                 */
+/*   Updated: 2021/09/27 11:10:33 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 long long	ft_big_atoi(const char *str)
 {

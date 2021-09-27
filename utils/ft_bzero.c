@@ -6,11 +6,11 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 15:38:09 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/05/27 11:15:30 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 11:10:33 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 void	ft_bzero(void *s, size_t n)
 {

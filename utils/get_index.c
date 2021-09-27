@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/17 16:18:10 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2021/09/15 12:46:18 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 11:18:17 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ int	get_index(t_stack **ref, int index)
 		temp = temp->next;
 		index--;
 	}
-	printf("test: %i\n", temp->index);
 	return (temp->index);
 }

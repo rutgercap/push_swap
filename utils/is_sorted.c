@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/09 14:01:27 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2021/09/15 14:57:25 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 11:18:07 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,16 @@ static int	check_sort(t_stack *i, const int low, t_bool *rotate)
 	return (SORTED);
 }
 
+static int	last_check(t_stack **s)
+{
+	int	len;
+
+	len = stacklen(s);
+	if (get_index(s, 0) < get_index(s, len))
+		return (NOT_SORTED);
+	return (NEEDS_ROTATING);
+}
+
 int	is_sorted(t_stack **s)
 {
 	t_bool	rotate;
@@ -83,6 +93,6 @@ int	is_sorted(t_stack **s)
 	if (check_sort(*s, low, &rotate) == NOT_SORTED)
 		return (NOT_SORTED);
 	if (rotate == TRUE)
-		return (NEEDS_ROTATING);
+		return (last_check(s));
 	return (SORTED);
 }

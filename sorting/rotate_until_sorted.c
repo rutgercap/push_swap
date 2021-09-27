@@ -6,37 +6,39 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/09/13 11:47:58 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/15 15:16:49 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 08:15:21 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int		get_dir(t_stack *s)
+static int	get_dir(t_stack *s)
 {
-    int		len;
-    int		curr;
+	int	len;
+	int	steps;
 
-    len = stacklen(&s);
-    curr = 1;
-    while (s->index != 1 && curr < (len / 2))
-    {
-    	curr++;
-        s = s->next;
+	len = stacklen(&s);
+	if (len % 2 == 1)
+		len++;
+	steps = 0;
+	while (s->index != 1 && steps < (len / 2))
+	{
+		steps++;
+		s = s->next;
 		if (s->index == 1)
 			return (DOWN);
-    }
+	}
 	return (UP);
 }
 
 void	rotate_until_sorted(t_stack **s, char id)
 {
-	t_stack *i;
-    int		dir; 
+	t_stack	*i;
+	int		dir;
 
-    i = *s;
-    if (is_sorted(s) == SORTED)
-        return ;
+	i = *s;
+	if (is_sorted(s) == SORTED)
+		return ;
 	dir = get_dir(*s);
 	while (i->index != 1)
 	{
@@ -45,5 +47,5 @@ void	rotate_until_sorted(t_stack **s, char id)
 		if (dir == DOWN)
 			rev_rotate(&i, id);
 	}
-    *s = i;
+	*s = i;
 }

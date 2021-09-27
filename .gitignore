@@ -2,3 +2,5 @@
 .DS_Store
 unit_test/
 .vscode
+push_swap
+push_swap_tester

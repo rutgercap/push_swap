@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:02:06 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/15 11:59:26 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 11:24:07 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@
 # define STACK_A 'a'
 # define STACK_B 'b'
 # define NOT_SET -1
-
-/*
-**	needs_rotating.c
-*/
 # define UP 1
 # define DOWN 0
 
@@ -40,9 +36,13 @@
 # define SORTED 1
 # define NEEDS_ROTATING 2
 
-# include <stdio.h>  // weghalen
+/*
+**	small_sort.c
+*/
+# define PUSH 1
+# define SWAP 0
 
-typedef enum
+typedef enum e_bool
 {
 	FALSE,
 	TRUE
@@ -91,7 +91,7 @@ void		input_converter(t_stack **a, int argc, char **argv);
 
 void		set_index(t_stack **s);
 
-void		exit_error(char *msg);
+void		exit_error(void);
 
 /*
 **	operations
@@ -120,6 +120,8 @@ void		rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 void		mini_sort(t_stack **ref, char id);
 
 void		small_sort(t_stack **stack_a, t_stack **stack_b);
+
+void		big_sort(t_stack **a, t_stack **b);
 
 void		rotate_until_sorted(t_stack **s, char id);
 

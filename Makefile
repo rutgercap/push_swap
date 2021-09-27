@@ -6,7 +6,7 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/27 10:57:36 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/15 15:16:16 by rcappend      ########   odam.nl          #
+#    Updated: 2021/09/27 11:14:17 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,14 +37,15 @@ SRCS		=	main.c \
 				operations/rev_rotate_rotate.c \
 				sorting/mini_sort.c \
 				sorting/small_sort.c \
-				sorting/rotate_until_sorted.c \
-				# sorting/small_sort.c \
-				# operations/trade.c
+				sorting/big_sort.c \
+				sorting/rotate_until_sorted.c
 OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
-CFLAGS		= 	-Wall  -Wextra -fsanitize=address -g3 # cleanup -Werror
+CFLAGS		= 	-Wall -Werror -Wextra
+
+ARGS		=	-100 14848 -10000 100
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
@@ -58,14 +59,17 @@ fclean: clean
 
 re: fclean all
 
-empty: all
-	./$(NAME)
+run: all
+	./$(NAME) $(ARGS)
 
-test: all
-	./$(NAME) 1 3 2
+srun: all
+	@./$(NAME) $(ARGS)
 
-dtest: all
-	lldb $(NAME) -- 1 2 3 4 5 6
+count:
+	@$(MAKE) srun | wc -l
+
+check: all
+	@./push_swap $(ARGS) | ./checker_Mac $(ARGS)
 
 phony:
-	all clean fclean re dtest test
+	all clean fclean re run srun count

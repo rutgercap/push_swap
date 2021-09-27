@@ -6,11 +6,11 @@
 /*   By: rcappend <rcappend@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/10/29 15:37:54 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/05/27 11:35:57 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 11:06:10 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../push_swap.h"
 
 int	ft_atoi(const char *str)
 {
