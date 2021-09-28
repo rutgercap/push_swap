@@ -6,7 +6,7 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/27 10:57:36 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/27 11:14:17 by rcappend      ########   odam.nl          #
+#    Updated: 2021/09/27 15:40:47 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,9 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
-CFLAGS		= 	-Wall -Werror -Wextra
+CFLAGS		= 	-Wall -Werror -Wextra -g
 
-ARGS		=	-100 14848 -10000 100
+ARGS		=	-401666680 951039391 710097813 -1409587855 775784273
 
 all:		$(NAME)
 $(NAME):	$(OBJS)
@@ -62,6 +62,9 @@ re: fclean all
 run: all
 	./$(NAME) $(ARGS)
 
+drun: all
+	lldb $(NAME) -- $(ARGS)
+
 srun: all
 	@./$(NAME) $(ARGS)
 
@@ -69,7 +72,7 @@ count:
 	@$(MAKE) srun | wc -l
 
 check: all
-	@./push_swap $(ARGS) | ./checker_Mac $(ARGS)
+	@./push_swap $(ARGS) | ./checker_Mac $(ARGS) && $(MAKE) count
 
 phony:
 	all clean fclean re run srun count

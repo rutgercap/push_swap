@@ -6,11 +6,12 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:04:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/27 11:22:42 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/09/27 15:45:32 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	exit_error(void)
 {
@@ -31,10 +32,24 @@ void	sort(t_stack **a, t_stack **b)
 		swap(a, STACK_A);
 	else if (len == 3)
 		mini_sort(a, STACK_A);
-	else if (len == 5)
+	else if (len == 4 || len == 5)
 		small_sort(a, b);
 	else
 		big_sort(a, b);
+}
+
+void	print_stack(t_stack **s)
+{
+	int	len;
+	int	i;
+
+	i = 0;
+	len = stacklen(s);
+	while (i < len)
+	{
+		printf("%i\n", get_index(s, i));
+		i++;
+	}
 }
 
 int	main(int argc, char **argv)
@@ -48,6 +63,8 @@ int	main(int argc, char **argv)
 	b = NULL;
 	input_converter(&a, argc, argv);
 	set_index(&a);
+	// print_stack(&a);
 	sort(&a, &b);
+	// print_stack(&a);
 	return (EXIT_SUCCESS);
 }
