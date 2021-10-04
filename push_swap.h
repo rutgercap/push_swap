@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:02:06 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/27 11:24:07 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/10/04 14:41:18 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 /*
 **	general
