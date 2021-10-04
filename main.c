@@ -6,12 +6,11 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:04:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/27 15:45:32 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/10/04 14:37:22 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	exit_error(void)
 {
@@ -63,8 +62,6 @@ int	main(int argc, char **argv)
 	b = NULL;
 	input_converter(&a, argc, argv);
 	set_index(&a);
-	// print_stack(&a);
 	sort(&a, &b);
-	// print_stack(&a);
 	return (EXIT_SUCCESS);
 }
