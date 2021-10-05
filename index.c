@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/20 10:41:55 by rutgercappe   #+#    #+#                 */
-/*   Updated: 2021/09/27 11:22:07 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/10/05 16:35:33 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,6 @@ static void	save_index(t_stack **s, int dest, int to_set)
 	}
 	i->index = to_set;
 }
-
-// static int	get_highest(t_stack **s)
-// {
-// 	t_stack	*i;
-// 	int		highest;
-// 	int		index;
-// 	int		current;
-
-// 	i = *s;
-// 	highest = NOT_SET;
-// 	index = 1;
-// 	current = 1;
-// 	while (i != NULL)
-// 	{
-// 		if (i->index == NOT_SET && i->value > highest)
-// 		{
-// 			highest = i->value;
-// 			index = current;
-// 		}
-// 		i = i->next;
-// 		current++;
-// 	}
-// 	return index;
-// }
 
 static int	get_highest(t_stack **s)
 {

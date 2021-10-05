@@ -6,7 +6,7 @@
 #    By: rutgercappendijk <rutgercappendijk@stud      +#+                      #
 #                                                    +#+                       #
 #    Created: 2021/05/27 10:57:36 by rcappend      #+#    #+#                  #
-#    Updated: 2021/09/27 15:40:47 by rcappend      ########   odam.nl          #
+#    Updated: 2021/10/05 16:56:04 by rcappend      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,9 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	gcc
 
-CFLAGS		= 	-Wall -Werror -Wextra -g
+CFLAGS		= 	-Wall -Werror -Wextra
 
-ARGS		=	-401666680 951039391 710097813 -1409587855 775784273
+ARGS		=	2147483647 -2147483648 -211289
 
 all:		$(NAME)
 $(NAME):	$(OBJS)

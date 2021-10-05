@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:44:29 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/09/27 11:03:02 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/10/05 16:54:32 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,22 @@ static int	int_check(char *value)
 	return (EXIT_SUCCESS);
 }
 
-static int	boundary_check(char *value)
+static int	boundary_check(int n, char *value)
 {
-	long long	temp;
-
-	temp = ft_big_atoi(value);
-	if (temp < INT_MIN || temp > INT_MAX)
-		return (EXIT_FAILURE);
+	if (*value == '-')
+	{
+		if (ft_strlen(value) > 11)
+			return (EXIT_FAILURE);
+		if (n > 0)
+			return (EXIT_FAILURE);
+	}
+	else
+	{
+		if (ft_strlen(value) > 10)
+			return (EXIT_FAILURE);
+		if (n < 0)
+			return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -58,17 +67,17 @@ static void	check_duplicates(t_stack *start)
 
 void	input_converter(t_stack **a, int argc, char **argv)
 {
-	int		temp;
+	int	temp;
 
-	temp = argc - 2;
 	while (argc > 1)
 	{
 		argc--;
 		if (int_check(argv[argc]))
 			exit_error();
-		if (boundary_check(argv[argc]))
+		temp = ft_atoi(argv[argc]);
+		if (boundary_check(temp, argv[argc]))
 			exit_error();
-		add_to_front(a, ft_atoi(argv[argc]));
+		add_to_front(a, temp);
 	}
 	check_duplicates(*a);
 }

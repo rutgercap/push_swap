@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:04:18 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/10/04 14:37:22 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/10/05 16:56:09 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	main(int argc, char **argv)
 	t_stack	*b;
 
 	if (argc == 1)
-		exit_error();
+		return (EXIT_SUCCESS);
 	a = NULL;
 	b = NULL;
 	input_converter(&a, argc, argv);
