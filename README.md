@@ -31,7 +31,7 @@ The main learning goals is to learn about complexity within algorithms and to le
   ./push_swap 4 3 2 1
    ```
 Example:
- ![Example screenshot](/pics/screenshot.bmp)
+ ![Example screenshot](/pics/screenshot.png)
 
 ### Disclaimer
 
