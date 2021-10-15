@@ -6,7 +6,7 @@
 /*   By: rutgercappendijk <rutgercappendijk@stud      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/27 13:02:06 by rcappend      #+#    #+#                 */
-/*   Updated: 2021/10/04 14:41:18 by rcappend      ########   odam.nl         */
+/*   Updated: 2021/10/15 14:33:43 by rcappend      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 /*
 **	general
 */
-# define INT_MAX 2147483647
 # define INT_MIN -2147483648
 # define STACK_A 'a'
 # define STACK_B 'b'
@@ -36,12 +35,6 @@
 # define NOT_SORTED -1
 # define SORTED 1
 # define NEEDS_ROTATING 2
-
-/*
-**	small_sort.c
-*/
-# define PUSH 1
-# define SWAP 0
 
 typedef enum e_bool
 {
