@@ -28,7 +28,7 @@ The main learning goals is to learn about complexity within algorithms and to le
    ```console
   ./push_swap <integer stack>
   
-  ./push_swap 4 3 2 1
+  ./push_swap 5 4 3 2 1
    ```
 Example:
 
